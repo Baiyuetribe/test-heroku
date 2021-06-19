@@ -6,7 +6,7 @@ ENV DB_TYPE='PostgreSQL-Heroku'
 
 WORKDIR /usr/src/app
 
-RUN sed -i "s|'# 处理文件夹'|'sed -i \"s|'sqlite:///'+os.path.join(SQL_PATH,'kamifaka.db')|'\${DATABASE_URL/'postgres'/'postgresql+psycopg2'}'|g\" /usr/src/app/service/api/db.py'|g" docker-entrypoint.sh
+RUN sed -i "s|'# 处理文件夹'|'sed -i \"s\|'sqlite:///'+os.path.join(SQL_PATH,'kamifaka.db')\|'\${DATABASE_URL/'postgres'/'postgresql+psycopg2'}'\|g\" /usr/src/app/service/api/db.py'|g" docker-entrypoint.sh
 
 # RUN sed -i "s|'sqlite:///'+os.path.join(SQL_PATH,'kamifaka.db')|'${DATABASE_URL/'postgres'/'postgresql+psycopg2'}'|g" /usr/src/app/service/api/db.py 
 
