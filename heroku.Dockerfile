@@ -11,10 +11,10 @@ RUN sed -i "s|'# 处理文件夹'|'sed -i \"s\|'sqlite:///'+os.path.join(SQL_PAT
 # RUN sed -i "s|'sqlite:///'+os.path.join(SQL_PATH,'kamifaka.db')|'${DATABASE_URL/'postgres'/'postgresql+psycopg2'}'|g" /usr/src/app/service/api/db.py 
 
 RUN sed -i '$d' docker-entrypoint.sh && \
-    # echo "gunicorn -k gevent --bind 0.0.0.0:${PORT} --workers 4 app:app" >> docker-entrypoint.sh && \
-    echo "gunicorn -k gevent --bind 0.0.0.0:8000 --workers 4 app:app" >> docker-entrypoint.sh && \
-    sed -i 's|8000|$PORT|g' docker-entrypoint.sh && \
-    chmod +x docker-entrypoint.sh
+    echo "gunicorn -k gevent --bind 0.0.0.0:${PORT} --workers 4 app:app" >> docker-entrypoint.sh
+    # echo "gunicorn -k gevent --bind 0.0.0.0:8000 --workers 4 app:app" >> docker-entrypoint.sh && \
+    # sed -i 's|8000|$PORT|g' docker-entrypoint.sh && \
+    # chmod +x docker-entrypoint.sh
 
 
 # RUN sed -i "s|'sqlite:///'+os.path.join(SQL_PATH,'kamifaka.db')|'${DATABASE_URL/'postgres'/'postgresql+psycopg2'}'|g" /usr/src/app/service/api/db.py && \
