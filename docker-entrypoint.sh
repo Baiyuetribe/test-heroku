@@ -10,7 +10,7 @@ if [ ${DB_TYPE} = 'Mysql' ];then
    sed -i "s|'sqlite:///'+os.path.join(SQL_PATH,'kamifaka.db')|'mysql+pymysql://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_DATABASE}\?charset=utf8mb4'|g" /usr/src/app/service/api/db.py
 elif [ ${DB_TYPE} = 'PostgreSQL' ];then
    # sed -i 's|postgresql://|postgresql+psycopg2://|g' /usr/src/app/docker-entrypoint.sh
-   sed -i "s|'sqlite:///'+os.path.join(SQL_PATH,'kamifaka.db')|`echo $DATABASE_URL | sed 's/postgres/postgresql\+psycopg2/'`|g" /usr/src/app/service/api/db.py
+   sed -i "s|'sqlite:///'+os.path.join(SQL_PATH,'kamifaka.db')|'postgresql+psycopg2://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_DATABASE}'|g" /usr/src/app/service/api/db.py
 elif [ ${DB_TYPE} = 'PostgreSQL-Heroku' ];then
    # sed -i 's|postgresql://|postgresql+psycopg2://|g' /usr/src/app/docker-entrypoint.sh
 #    sed -i "s|'sqlite:///'+os.path.join(SQL_PATH,'kamifaka.db')|'${DATABASE_URL}'|g" /usr/src/app/service/api/db.py
