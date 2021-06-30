@@ -3,7 +3,7 @@ echo '====^_^===='
 echo '欢迎使用佰阅发卡(KAMIFAKA)程序'
 
 echo ${DATABASE_URL}
-echo ${DATABASE_URL/postgres/postgresql\+psycopg2}
+# echo ${DATABASE_URL/postgres/postgresql\+psycopg2}
 # echo $a | sed 's/postgres/postgresql\+psycopg2/'
 # postgres://ooqvwiuhhrkpcs:938ae7d12ddce11b941a1070bcbab92006615d1b33df6cd4b3459bf7989585a7@ec2-34-202-54-225.compute-1.amazonaws.com:5432/dbt364afgkf42
 if [ ${DB_TYPE} = 'Mysql' ];then
