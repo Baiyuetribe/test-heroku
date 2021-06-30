@@ -16,8 +16,8 @@ elif [ ${DB_TYPE} = 'PostgreSQL-Heroku' ];then
 #    sed -i "s|'sqlite:///'+os.path.join(SQL_PATH,'kamifaka.db')|'${DATABASE_URL}'|g" /usr/src/app/service/api/db.py
 #    sed -i "s|'sqlite:///'+os.path.join(SQL_PATH,'kamifaka.db')|'`echo $DATABASE_URL | sed 's/postgres/postgresql\+psycopg2/'`'|g" /usr/src/app/service/api/db.py    # 成功
 #    sed -i "s|'sqlite:///'+os.path.join(SQL_PATH,'kamifaka.db')|`echo $DATABASE_URL | sed 's/postgres/postgresql\+psycopg2/'`|g" /usr/src/app/service/api/db.py
-#    sed -i "s|'sqlite:///'+os.path.join(SQL_PATH,'kamifaka.db')|`echo ${DATABASE_URL/postgres/postgresql\+psycopg2}`|g" /usr/src/app/service/api/db.py
-   sed -i "s|'sqlite:///'+os.path.join(SQL_PATH,'kamifaka.db')|`${DATABASE_URL/postgres/postgresql\+psycopg2}`|g" /usr/src/app/service/api/db.py
+   sed -i "s|'sqlite:///'+os.path.join(SQL_PATH,'kamifaka.db')|`echo ${DATABASE_URL/postgres/postgresql\+psycopg2}`|g" /usr/src/app/service/api/db.py
+#    sed -i "s|'sqlite:///'+os.path.join(SQL_PATH,'kamifaka.db')|`${DATABASE_URL/postgres/postgresql\+psycopg2}`|g" /usr/src/app/service/api/db.py    # 失败
 fi
 
 # 处理文件夹
